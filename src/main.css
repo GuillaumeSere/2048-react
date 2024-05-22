@@ -2,44 +2,44 @@
   font-family: "Clear Sans";
   src: url("../src/clear-sans.ttf") format("truetype");
 }
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
   background: url(./assets/img/bg.png) no-repeat;
   background-size: cover;
   height: 100vh;
-  color:white;
+  color: white;
   font-family: "Clear Sans", sans-serif;
   font-size: 21px;
 }
 
-.header{
-    background: #010101;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border-bottom: 2px solid #38ced3;
+.header {
+  background: #010101;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2px solid #38ced3;
 }
 
-.header h1{
-    letter-spacing: 10px;
+.header h1 {
+  letter-spacing: 10px;
 }
 
-.board-container{
-    margin: 0 auto;
-    background: #b8b8b899;
-    padding: 5rem;
-    border-radius: 10px;
-    margin-top: 2rem;
-    display: flex;
-    width: 40%;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+.board-container {
+  margin: 0 auto;
+  background: rgba(184, 184, 184, 0.6);
+  padding: 5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
 }
 
 .text {
@@ -54,7 +54,7 @@ body {
   width: 440px;
   height: 440px;
   padding: 5px;
-  background-color: #0000005b;
+  background-color: rgba(0, 0, 0, 0.3568627451);
   border-radius: 7px;
   outline: none;
   position: relative;
@@ -62,7 +62,9 @@ body {
 
 .board .cell,
 .tile {
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   cursor: default;
 }
 
@@ -84,10 +86,10 @@ body {
   padding: 10px 20px;
   border-radius: 7px;
   transition: color 0.3s ease, background-color 0.3s ease;
-  &:hover {
-    background-color: #38ced3;
-    color: rgba(255, 255, 255, 1);
-  }
+}
+.resetButton:hover {
+  background-color: #38ced3;
+  color: rgb(255, 255, 255);
 }
 
 .score-header {
@@ -103,8 +105,8 @@ body {
   border-radius: 7px;
 }
 
-.score-number{
-    color: rgb(13, 235, 243);
+.score-number {
+  color: rgb(13, 235, 243);
 }
 
 .cell,
@@ -230,7 +232,6 @@ body {
     transform: scale(1);
   }
 }
-
 .overlay {
   position: absolute;
   top: 0px;
@@ -276,8 +277,8 @@ body {
   color: #666;
 }
 
-@media (max-height: 1200px){
-    .board-container{
-        padding: 1rem;
-    }
-}
+@media (max-height: 1200px) {
+  .board-container {
+    padding: 1rem;
+  }
+}/*# sourceMappingURL=main.css.map */
