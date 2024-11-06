@@ -74,7 +74,20 @@ class Board {
     this.addRandomTile();
     this.setPositions();
     this.won = false;
+    this.updateDimensions();
+    window.addEventListener('resize', this.updateDimensions.bind(this));
   }
+  
+  updateDimensions() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const minDimension = Math.min(screenWidth, screenHeight);
+    this.cellSize = Math.floor(minDimension * 0.2);
+    this.gridSize = this.cellSize * this.size + (this.size + 1) * 10;
+    document.documentElement.style.setProperty('--cell-size', `${this.cellSize}px`);
+    document.documentElement.style.setProperty('--grid-size', `${this.gridSize}px`);
+  }
+
   addTile(args) {
     var res = new Tile(args);
     this.tiles.push(res);
@@ -117,6 +130,7 @@ class Board {
         tile.markForDeletion = false;
       });
     });
+    this.updateCellSize();
   }
   addRandomTile() {
     var emptyCells = [];
@@ -180,6 +194,19 @@ class Board {
       }
     }
     return !canMove;
+  }
+  setPositions() {
+    this.cells.forEach((row, rowIndex) => {
+      row.forEach((tile, columnIndex) => {
+        tile.oldRow = tile.row;
+        tile.oldColumn = tile.column;
+        tile.row = rowIndex;
+        tile.column = columnIndex;
+        tile.markForDeletion = false;
+      });
+    });
+    // Remplacez l'appel à updateCellSize par updateDimensions
+    this.updateDimensions();
   }
 }
 
